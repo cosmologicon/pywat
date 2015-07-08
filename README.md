@@ -62,6 +62,17 @@ Also, different systems may have different results, but you can always find at l
     >>> (1,2,3) == sorted((1,2,3))
     False
 
+### Types of arithmetic operations
+
+The type of an arithmetic operation cannot be predicted from the type of the operands alone. You also need to know their value.
+
+    >>> type(1) == type(-1)
+    True
+    >>> 1 ** 1 == 1 ** -1
+    True
+    >>> type(1 ** 1) == type(1 ** -1)
+    False
+
 ### Substrings and containing
 
     >>> x, y = "acb", "cb"
