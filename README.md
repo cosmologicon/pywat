@@ -86,6 +86,15 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     >>> y > max(x) and y in x
     True
 
+### Circular types
+
+    >>> isinstance(object, type)
+    True
+    >>> isinstance(type, object)
+    True
+
+[Source](https://www.reddit.com/r/Python/comments/3c344g/so_apparently_type_is_of_type_type/csrwwyv).
+
 ### Associative multiplication
 
     >>> x, y, z = "a", -1, -1
