@@ -120,6 +120,12 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     >>> min((x, y)) == min((y, x))
     False
 
+### `count` vs `len`
+
+    >>> x, y = "abc", ""
+    >>> x.count(y) <= len(x)
+    False
+
 ### Indexing with floats
 
     >>> [4][0]
