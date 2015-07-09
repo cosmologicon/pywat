@@ -50,6 +50,13 @@ Also, different systems may have different results, but you can always find at l
     >>> min(y) == min(*y)
     False
 
+### Operator precedence
+
+    >>> False == False in [False]
+    True
+
+[Source](https://www.reddit.com/r/programming/comments/3cjjgp/why_does_return_the_string_10/csxak65).
+
 ### Iterable types in comparisons
 
     >>> a = [0, 0]
