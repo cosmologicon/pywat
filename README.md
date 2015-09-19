@@ -20,11 +20,15 @@ If you're a Python developer reading these, you're likely to feel a desire to pu
     >>> int('2' * 3)
     222
 
-### Arithmetic with booleans
+### The undocumented [converse implication](https://en.wikipedia.org/wiki/Converse_implication) operator
 
     >>> False ** False == True
     True
-    >>> True << False == True
+    >>> False ** True == False
+    True
+    >>> True ** False == True
+    True
+    >>> True ** True == True
     True
 
 ### Mixing numerical types
