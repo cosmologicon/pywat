@@ -80,6 +80,18 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     >>> type(1 ** 1) == type(1 ** -1)
     False
 
+### Fun with iterators
+
+    >>> a = 2, 1, 3
+    >>> sorted(a) == sorted(a)
+    True
+    >>> reversed(a) == reversed(a)
+    False
+    
+    >>> b = reversed(a)
+    >>> sorted(b) == sorted(b)
+    False
+
 ### Substrings and containing
 
     >>> x, y = "acb", "cb"
