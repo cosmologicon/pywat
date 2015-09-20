@@ -45,15 +45,6 @@ Note: this is not simply due to floating-point imprecision.
 
 Also, different systems may have different results, but you can always find at least one wat along these lines.
 
-### Argument expansion
-
-    >>> x = 1,2,3
-    >>> min(x) == min(*x)
-    True
-    >>> y = (0,),
-    >>> min(y) == min(*y)
-    False
-
 ### Operator precedence
 
     >>> False == False in [False]
@@ -96,12 +87,6 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     >>> sorted(b) == sorted(b)
     False
 
-### Substrings and containing
-
-    >>> x, y = "acb", "cb"
-    >>> y > max(x) and y in x
-    True
-
 ### Circular types
 
     >>> isinstance(object, type)
@@ -110,12 +95,6 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     True
 
 [Source](https://www.reddit.com/r/Python/comments/3c344g/so_apparently_type_is_of_type_type/csrwwyv).
-
-### Associative multiplication
-
-    >>> x, y, z = "a", -1, -1
-    >>> x * (y * z) == (x * y) * z
-    False
 
 ### `extend` vs `+=`
 
@@ -129,18 +108,6 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     TypeError: 'tuple' object does not support item assignment
     >>> a[0]
     [1, 2]
-
-### Comparing sets
-
-    >>> x, y = {0}, {1}
-    >>> min((x, y)) == min((y, x))
-    False
-
-### `count` vs `len`
-
-    >>> x, y = "abc", ""
-    >>> x.count(y) <= len(x)
-    False
 
 ### Indexing with floats
 
