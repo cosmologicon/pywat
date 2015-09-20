@@ -6,6 +6,12 @@ Wats are funny, and learning about a language's edge cases probably helps you wi
 
 If you're a Python developer reading these, you're likely to feel a desire to put them into context with more information about how the language works. You're likely to say "Actually that makes perfect sense if you consider how Python handles *X*", or "Yes that's a little weird but in practice it's not an issue." And I completely agree. Python is a well designed language, and these wats do not reflect badly on it. You shouldn't judge a language by its wats.
 
+## The Python wat quiz
+
+Are you unimpressed by these wats? Do you think these edge cases are actually completely intuitive? Try your hand at [the Python wat quiz](https://github.com/cosmologicon/pywat/blob/master/quiz.md)!
+
+## The wats
+
 ### Converting to a string and back
 
     >>> bool(str(False))
@@ -43,9 +49,11 @@ Note: this is not simply due to floating-point imprecision.
     >>> x + 1.0 < x
     False
 
-Also, different systems may have different results, but you can always find at least one wat along these lines.
+Other languages that have floats and ints do not have this behavior. It is specific to Python.
 
-### Operator precedence
+Also, your systems may give different results, but you can always find at least one wat along these lines.
+
+### Operator precedence?
 
     >>> False == False in [False]
     True

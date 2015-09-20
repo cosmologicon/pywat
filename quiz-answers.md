@@ -2,18 +2,20 @@
 
 **STOP! SPOILER ALERT!**
 
-Click here if you haven't taken the quiz.
+[Click here if you haven't taken the quiz.](https://github.com/cosmologicon/pywat/blob/master/quiz.md)
 
 The quiz questions are repeated below along with their answers. At the very bottom there's a quick answer key if you just want to grade yourself quickly.
 
 # How did you do?
+
+Come back here to check your score.
 
 * 10/10: Python edge case gold medal!
 * 9/10: Python edge case silver medal.
 * 8/10: Python edge case bronze medal.
 * 7/10 or less: This quiz is unable to distinguish your results from random chance with any statistical certainty. Sorry.
 
-Just remember that edge cases can be interesting, but knowing Python edge cases is not the same as being a good Python programmer. If you follow good programming practices, you shouldn't be encountering edge cases at all.
+Just remember that edge cases can be interesting, but knowing the exact behavior of Python edge cases is not the same as being a good Python programmer. If you follow good programming practices, you shouldn't be encountering edge cases at all. The most important thing is to follow good practices, and remember that edge cases exist when writing your tests!
 
 # Questions with answers
 
