@@ -36,21 +36,20 @@ For a *real* challenge, try taking the quiz without using a Python interpreter t
 
 ## Details and scope
 
-**The answers to this quiz are limited to the built-in types `bool`, `int`, `list`, `tuple`, `dict`, `set`, `frozenset`, `str`, and `NoneType`, and values of these types.**
+**The missing values in this quiz are limited to the built-in types `bool`, `int`, `list`, `tuple`, `dict`, `set`, `frozenset`, `str`, and `NoneType`, and values of these types.**
 
-In particular, the following are out of scope, and not valid as answers:
+In particular, the following are out of scope, and are not valid as missing values:
 
 * user-defined classes
 * `lambda`s
 * anything using `globals` or `locals`
 * anything using `import`
-* redefined built-ins (obviously)
-* anything that changes value just by inspecting it or iterating over it (no iterators or generators)
-* expressions with side effects (e.g. `eval`)
-* `bytes` arrays, `buffer`s, `range`s, `memoryview`s, or dictionary views
-* `float`s and unicode, which have enough edge cases in any language. This also means `nan` and `inf` are out of scope. Strings, if they appear, will only have ascii characters.
+* anything that changes value just by inspecting it or iterating over it (iterators and generators)
+* expressions with side effects (e.g. `eval`), including anything that redefines built-ins (obviously)
+* `bytes` arrays, `buffer`s, `range`s, `memoryview`s, and dictionary views
+* `float`s and unicode, which have enough edge cases in any language. This means that `nan` and `inf` are also out of scope. Strings, if they appear, only have ascii characters.
 
-Remember, we're testing edge cases, so be careful and consider all possibilities. These are not trick questions, though. If an answer exists within the scope of the quiz, it will clearly be in scope.
+These are not trick questions. For snippets whose answers are *Yes, this is possible*, the missing values will clearly be in scope.
 
 Assume the latest Python version (currently 3.5) if it matters. It shouldn't, though.
 
