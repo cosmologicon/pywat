@@ -36,18 +36,21 @@ For a *real* challenge, try taking the quiz without using a Python interpreter t
 
 ## Details and scope
 
-This quiz is designed to test edge cases, so be careful and consider all possibilities, but these are not trick questions. All answers are clearly within the scope of this quiz.
+**The answers to this quiz are limited to the built-in types `bool`, `int`, `list`, `tuple`, `dict`, `set`, `frozenset`, `str`, and `NoneType`, and values of these types.**
 
-Python lets you do weird, tricky things, like using `exec` in an expression. So the answers to this quiz are limited in scope to the built-in types `bool`, `int`, `list`, `tuple`, `dict`, `set`, `frozenset`, `str`, and `NoneType`, and values of these types. That means:
+In particular, the following are out of scope, and not valid as answers:
 
-* no user-defined classes
-* no `lambda`s
-* no use of `globals` or `locals`
-* no `import`
-* no redefining built-ins (obviously)
-* nothing that changes value just by inspecting it or iterating over it (no iterators or generators)
-* no `bytes` arrays, `buffer`s, `range`s, `memoryview`s, or dictionary views
-* no `float`s or unicode, which have enough edge cases in any language. This also means no `nan` or `inf`. Strings, if they appear, will only have ascii characters.
+* user-defined classes
+* `lambda`s
+* anything using `globals` or `locals`
+* anything using `import`
+* redefined built-ins (obviously)
+* anything that changes value just by inspecting it or iterating over it (no iterators or generators)
+* expressions with side effects (e.g. `eval`)
+* `bytes` arrays, `buffer`s, `range`s, `memoryview`s, or dictionary views
+* `float`s and unicode, which have enough edge cases in any language. This also means `nan` and `inf` are out of scope. Strings, if they appear, will only have ascii characters.
+
+Remember, we're testing edge cases, so be careful and consider all possibilities. These are not trick questions, though. If an answer exists within the scope of the quiz, it will clearly be in scope.
 
 Assume the latest Python version (currently 3.5) if it matters. It shouldn't, though.
 
