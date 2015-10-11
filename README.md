@@ -28,13 +28,13 @@ Are you unimpressed by these wats? Do you think these edge cases are actually co
 
 ### The undocumented [converse implication](https://en.wikipedia.org/wiki/Converse_implication) operator
 
-    >>> False ** False == True
+    >>> (False ** False) == True
     True
-    >>> False ** True == False
+    >>> (False ** True) == False
     True
-    >>> True ** False == True
+    >>> (True ** False) == True
     True
-    >>> True ** True == True
+    >>> (True ** True) == True
     True
 
 ### Mixing numerical types
