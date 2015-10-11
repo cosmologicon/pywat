@@ -90,7 +90,7 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     True
     >>> reversed(a) == reversed(a)
     False
-    
+
     >>> b = reversed(a)
     >>> sorted(b) == sorted(b)
     False
@@ -162,3 +162,11 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     >>> len({x, float(x), 0*1e400})
     2
 
+### Mutating default parameters
+    >>> def wat(var=[]):
+    ...     return var
+    ...
+    >>> a = wat()
+    >>> a.append(5)
+    >>> wat()
+    [5]
