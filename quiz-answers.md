@@ -25,81 +25,101 @@ I hope this was fun, though. Thanks for trying it out!
 
 **No.** This snippet is impossible.
 
-    >>> x, a, b, c = ???
-    >>> max(x) < max(x[a:b:c])
-    True
+```python
+>>> x, a, b, c = ???
+>>> max(x) < max(x[a:b:c])
+True
+```
 
 ### Question 2: `min` of two elements
 
 **Yes.** This snippet is possible.
 
-    >>> x, y = {0}, {1}
-    >>> min(x, y) == min(y, x)
-    False
+```python
+>>> x, y = {0}, {1}
+>>> min(x, y) == min(y, x)
+False
+```
 
 ### Question 3: `any` vs addition
 
 **No.** This snippet is impossible.
 
-    >>> x, y = ???
-    >>> any(x) and not any(x + y)
-    True
+```python
+>>> x, y = ???
+>>> any(x) and not any(x + y)
+True
+```
 
 ### Question 4: `count` vs `len`
 
 **Yes.** This snippet is possible.
 
-    >>> x, y = "a", ""
-    >>> x.count(y) <= len(x)
-    False
+```python
+>>> x, y = "a", ""
+>>> x.count(y) <= len(x)
+False
+```
 
 ### Question 5: Associative multiplication
 
 **Yes.** This snippet is possible.
 
-    >>> x, y, z = [0], -1, -1
-    >>> x * (y * z) == (x * y) * z
-    False
+```python
+>>> x, y, z = [0], -1, -1
+>>> x * (y * z) == (x * y) * z
+False
+```
 
 ### Question 6: `zip` vs comparison
 
 **Yes.** This snippet is possible.
 
-    >>> x, y = [], [0]
-    >>> x < y and all(a >= b for a, b in zip(x, y))
-    True
+```python
+>>> x, y = [], [0]
+>>> x < y and all(a >= b for a, b in zip(x, y))
+True
+```
 
 ### Question 7: size of sets and lists
 
 **No.** This snippet is impossible.
 
-    >>> x = ???
-    >>> len(set(list(x))) == len(list(set(x)))
-    False
+```python
+>>> x = ???
+>>> len(set(list(x))) == len(list(set(x)))
+False
+```
 
 ### Question 8: argument expansion
 
 **Yes.** This snippet is possible.
 
-    >>> x = [[0]]
-    >>> min(x) == min(*x)
-    False
+```python
+>>> x = [[0]]
+>>> min(x) == min(*x)
+False
+```
 
 ### Question 9: zero `sum`
 
 **No.** This snippet is impossible.
 
-    >>> x, y = ???
-    >>> sum(0 * x, y) == y
-    False
+```python
+>>> x, y = ???
+>>> sum(0 * x, y) == y
+False
+```
 
 ### Question 10: `max` vs `in`
 
 **Yes.** This snippet is possible.
 
-    >>> x, y = "aa", "aa"
-    >>> y > max(x) and y in x
-    True
+```python
+>>> x, y = "aa", "aa"
+>>> y > max(x) and y in x
+True
+```
 
 ## Quick answer key
 

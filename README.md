@@ -14,40 +14,50 @@ Are you unimpressed by these wats? Do you think these edge cases are actually co
 
 ### Converting to a string and back
 
-    >>> bool(str(False))
-    True
+```python
+>>> bool(str(False))
+True
+```
 
 ### Mixing integers with strings
 
-    >>> int(2 * 3)
-    6
-    >>> int(2 * '3')
-    33
-    >>> int('2' * 3)
-    222
+```python
+>>> int(2 * 3)
+6
+>>> int(2 * '3')
+33
+>>> int('2' * 3)
+222
+```
 
 ### The undocumented [converse implication](https://en.wikipedia.org/wiki/Converse_implication) operator
 
-    >>> False ** False == True
-    True
-    >>> False ** True == False
-    True
-    >>> True ** False == True
-    True
-    >>> True ** True == True
-    True
+```python
+>>> False ** False == True
+True
+>>> False ** True == False
+True
+>>> True ** False == True
+True
+>>> True ** True == True
+True
+```
 
 ### Mixing numerical types
 
-    >>> x = (1 << 53) + 1
-    >>> x + 1.0 < x
-    True
+```python
+>>> x = (1 << 53) + 1
+>>> x + 1.0 < x
+True
+```
 
 Note: this is not simply due to floating-point imprecision.
 
-    >>> x = float((1 << 53) + 1)
-    >>> x + 1.0 < x
-    False
+```python
+>>> x = float((1 << 53) + 1)
+>>> x + 1.0 < x
+False
+```
 
 Other languages that have floats and ints do not have this behavior. It is specific to Python.
 
@@ -55,110 +65,134 @@ Also, your systems may give different results, but you can always find at least 
 
 ### Operator precedence?
 
-    >>> False == False in [False]
-    True
+```python
+>>> False == False in [False]
+True
+```
 
 [Source](https://www.reddit.com/r/programming/comments/3cjjgp/why_does_return_the_string_10/csxak65).
 
 ### Iterable types in comparisons
 
-    >>> a = [0, 0]
-    >>> (x, y) = a
-    >>> (x, y) == a
-    False
+```python
+>>> a = [0, 0]
+>>> (x, y) = a
+>>> (x, y) == a
+False
+```
 
-    >>> [1,2,3] == sorted([1,2,3])
-    True
-    >>> (1,2,3) == sorted((1,2,3))
-    False
+```python
+>>> [1,2,3] == sorted([1,2,3])
+True
+>>> (1,2,3) == sorted((1,2,3))
+False
+```
 
 ### Types of arithmetic operations
 
 The type of an arithmetic operation cannot be predicted from the type of the operands alone. You also need to know their value.
 
-    >>> type(1) == type(-1)
-    True
-    >>> 1 ** 1 == 1 ** -1
-    True
-    >>> type(1 ** 1) == type(1 ** -1)
-    False
+```python
+>>> type(1) == type(-1)
+True
+>>> 1 ** 1 == 1 ** -1
+True
+>>> type(1 ** 1) == type(1 ** -1)
+False
+```
 
 ### Fun with iterators
 
-    >>> a = 2, 1, 3
-    >>> sorted(a) == sorted(a)
-    True
-    >>> reversed(a) == reversed(a)
-    False
-    
-    >>> b = reversed(a)
-    >>> sorted(b) == sorted(b)
-    False
+```python
+>>> a = 2, 1, 3
+>>> sorted(a) == sorted(a)
+True
+>>> reversed(a) == reversed(a)
+False
+```
+
+```python
+>>> b = reversed(a)
+>>> sorted(b) == sorted(b)
+False
+```
 
 ### Circular types
 
-    >>> isinstance(object, type)
-    True
-    >>> isinstance(type, object)
-    True
+```python
+>>> isinstance(object, type)
+True
+>>> isinstance(type, object)
+True
+```
 
 [Source](https://www.reddit.com/r/Python/comments/3c344g/so_apparently_type_is_of_type_type/csrwwyv).
 
 ### `extend` vs `+=`
 
-    >>> a = ([],)
-    >>> a[0].extend([1])
-    >>> a[0]
-    [1]
-    >>> a[0] += [2]
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: 'tuple' object does not support item assignment
-    >>> a[0]
-    [1, 2]
+```python
+>>> a = ([],)
+>>> a[0].extend([1])
+>>> a[0]
+[1]
+>>> a[0] += [2]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> a[0]
+[1, 2]
+```
 
 ### Indexing with floats
 
-    >>> [4][0]
-    4
-    >>> [4][0.0]
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: list indices must be integers, not float
-    >>> {0:4}[0]
-    4
-    >>> {0:4}[0.0]
-    4
+```python
+>>> [4][0]
+4
+>>> [4][0.0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: list indices must be integers, not float
+>>> {0:4}[0]
+4
+>>> {0:4}[0.0]
+4
+```
 
 ### `all` and emptiness
 
-    >>> all([])
-    True
-    >>> all([[]])
-    False
-    >>> all([[[]]])
-    True
+```python
+>>> all([])
+True
+>>> all([[]])
+False
+>>> all([[[]]])
+True
+```
 
 ### `sum` and strings
 
-    >>> sum("")
-    0
-    >>> sum("", ())
-    ()
-    >>> sum("", [])
-    []
-    >>> sum("", {})
-    {}
-    >>> sum("", "")
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: sum() can't sum strings [use ''.join(seq) instead]
+```python
+>>> sum("")
+0
+>>> sum("", ())
+()
+>>> sum("", [])
+[]
+>>> sum("", {})
+{}
+>>> sum("", "")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: sum() can't sum strings [use ''.join(seq) instead]
+```
 
 ### Comparing `NaN`s
 
-    >>> x = 0*1e400  # nan
-    >>> len({x, x, float(x), float(x), 0*1e400, 0*1e400})
-    3
-    >>> len({x, float(x), 0*1e400})
-    2
+```python
+>>> x = 0*1e400  # nan
+>>> len({x, x, float(x), float(x), 0*1e400, 0*1e400})
+3
+>>> len({x, float(x), 0*1e400})
+2
+```
 
