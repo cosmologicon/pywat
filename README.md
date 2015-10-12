@@ -162,3 +162,9 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     >>> len({x, float(x), 0*1e400})
     2
 
+### Converting datetime.time to bool (Python 3.4 or lower)
+
+    >>> bool(datetime.time(0,0,0))
+    False
+    >>> bool(datetime.time(0,0,1))
+    True
