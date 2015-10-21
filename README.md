@@ -130,6 +130,11 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     >>> {0:4}[0.0]
     4
 
+### Indexing with bools
+
+    >>> [4][False]
+    4
+
 ### `all` and emptiness
 
     >>> all([])
@@ -161,4 +166,3 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     3
     >>> len({x, float(x), 0*1e400})
     2
-
