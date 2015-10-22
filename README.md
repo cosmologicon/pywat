@@ -162,3 +162,17 @@ The type of an arithmetic operation cannot be predicted from the type of the ope
     >>> len({x, float(x), 0*1e400})
     2
 
+### Variable shadowing before assignment
+
+    >>> def f(n):
+    ...   return n
+    ... 
+    >>> def main():
+    ...   print f(4)
+    ...   f = lambda x: x
+    ... 
+    >>> main()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "<stdin>", line 2, in main
+    UnboundLocalError: local variable 'f' referenced before assignment
