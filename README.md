@@ -1,6 +1,6 @@
 # Python wats
 
-A "wat" is what I call a snippet of code that demonstrates a counterintuitive edge case of a programming language. The name comes from [this excellent talk by Gary Bernhardt](https://www.destroyallsoftware.com/talks/wat). If you're not familiar with the language, you might conclude that it's poorly designed when you see a wat. Often, more context about the language design will make the wat seem reasonable, or at least justified.
+A "wat" is what I call a snippet of code that demonstrates a counterintuitive edge case of a programming language. (The name comes from [this excellent talk by Gary Bernhardt](https://www.destroyallsoftware.com/talks/wat).) If you're not familiar with the language, you might conclude that it's poorly designed when you see a wat. Often, more context about the language design will make the wat seem reasonable, or at least justified.
 
 Wats are funny, and learning about a language's edge cases probably helps you with that language, but I don't think you should judge a language based on its wats. (It's perfectly fine to judge a language, of course, as long as it's an *informed* judgment, based on whether the language makes it difficult for its developers to write error-free code, not based on artificial, funny one-liners.) This is the point I want to prove to Python developers.
 

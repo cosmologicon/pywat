@@ -4,25 +4,11 @@ Test your knowledge of Python edge cases!
 
 ## Instructions
 
-In each of the 10 snippets below, one or more values is missing (marked with `???`). In each case, answer Yes or No: is it possible to replace the `???` with something that will make the snippet into exactly what you would see if you entered the text into the interpreter?
-
-For a *real* challenge, try taking the quiz without using a Python interpreter to check your answers.
+In each of the 10 snippets below, one or more values is missing (marked with `???`). In each case, answer Yes or No: is it possible to replace the `???` with an expression using basic, built-in Python types (see Details below) that will make the snippet into exactly what you would see if you entered the text into the interpreter?
 
 ## Examples
 
 ### Example question 1
-
-```python
->>> x = ???
->>> x < x
-True
-```
-
-### Example answer 1
-
-**No.** This snippet is impossible.
-
-### Example question 2
 
 ```python
 >>> x, y = ???
@@ -30,7 +16,7 @@ True
 False
 ```
 
-### Example answer 2
+### Example answer 1
 
 **Yes.** This snippet is possible.
 
@@ -40,12 +26,27 @@ False
 False
 ```
 
+### Example question 2
+
+```python
+>>> x = ???
+>>> x < x
+True
+```
+
+### Example answer 2
+
+**No.** This snippet is impossible.
+
 ## Details and scope
 
-**The missing values in this quiz are limited to the built-in types `bool`, `int`, `list`, `tuple`, `dict`, `set`, `frozenset`, `str`, and `NoneType`, and values of these types.**
+Now, technically, `type("", (), {"__lt__": lambda a, b: True})()` would make Example question 2 work. But don't worry. This quiz is not about trick questions, and I'm not looking for "trick" answers like that. **The missing values in this quiz are limited to the built-in types `bool`, `int`, `list`, `tuple`, `dict`, `set`, `frozenset`, `str`, and `NoneType`, and values of these types.**
 
 In particular, the following are out of scope, and are not valid as missing values:
 
+* `float`s, including `nan` and `inf`
+* unicode (Strings, if they appear, only have ascii characters.)
+* the `type` keyword
 * user-defined classes
 * `lambda`s
 * anything using `globals` or `locals`
@@ -53,15 +54,18 @@ In particular, the following are out of scope, and are not valid as missing valu
 * anything that changes value just by inspecting it or iterating over it (iterators and generators)
 * expressions with side effects (e.g. `eval`), including anything that redefines built-ins (obviously)
 * `bytes` arrays, `buffer`s, `range`s, `memoryview`s, and dictionary views
-* `float`s and unicode, which have enough edge cases in any language. This means that `nan` and `inf` are also out of scope. Strings, if they appear, only have ascii characters.
 
-These are not trick questions. For snippets whose answers are *Yes, this is possible*, the missing values will clearly be in scope.
+Again, these are not trick questions. For snippets whose answers are *Yes, this is possible*, the missing values will clearly be in scope.
 
 Assume the latest Python version (currently 3.5) if it matters. It shouldn't, though.
 
 ## The questions
 
-Make sure to write down your answers (Yes or No) *before* looking at the answers, so you're not tempted to cheat. Good luck!
+Make sure to write down your answers (Yes or No) *before* looking at the answers, so you're not tempted to cheat.
+
+For a *real* challenge, try taking the quiz without using a Python interpreter to check your answers.
+
+Good luck!
 
 ### Question 1: `max` vs slice
 
