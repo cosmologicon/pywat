@@ -196,3 +196,9 @@ TypeError: sum() can't sum strings [use ''.join(seq) instead]
 2
 ```
 
+### Converting datetime.time to bool (Python 3.4 or lower)
+
+    >>> bool(datetime.time(0,0,0))
+    False
+    >>> bool(datetime.time(0,0,1))
+    True
