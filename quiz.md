@@ -12,9 +12,11 @@ For a *real* challenge, try taking the quiz without using a Python interpreter t
 
 ### Example question 1
 
-    >>> x = ???
-    >>> x < x
-    True
+```python
+>>> x = ???
+>>> x < x
+True
+```
 
 ### Example answer 1
 
@@ -22,17 +24,21 @@ For a *real* challenge, try taking the quiz without using a Python interpreter t
 
 ### Example question 2
 
-    >>> x, y = ???
-    >>> x + y == y + x
-    False
+```python
+>>> x, y = ???
+>>> x + y == y + x
+False
+```
 
 ### Example answer 2
 
 **Yes.** This snippet is possible.
 
-    >>> x, y = [0], [1]
-    >>> x + y == y + x
-    False
+```python
+>>> x, y = [0], [1]
+>>> x + y == y + x
+False
+```
 
 ## Details and scope
 
@@ -59,63 +65,83 @@ Make sure to write down your answers (Yes or No) *before* looking at the answers
 
 ### Question 1: `max` vs slice
 
-    >>> x, a, b, c = ???
-    >>> max(x) < max(x[a:b:c])
-    True
+```python
+>>> x, a, b, c = ???
+>>> max(x) < max(x[a:b:c])
+True
+```
 
 ### Question 2: `min` of two elements
 
-    >>> x, y = ???
-    >>> min(x, y) == min(y, x)
-    False
+```python
+>>> x, y = ???
+>>> min(x, y) == min(y, x)
+False
+```
 
 ### Question 3: `any` vs addition
 
-    >>> x, y = ???
-    >>> any(x) and not any(x + y)
-    True
+```python
+>>> x, y = ???
+>>> any(x) and not any(x + y)
+True
+```
 
 ### Question 4: `count` vs `len`
 
-    >>> x, y = ???
-    >>> x.count(y) <= len(x)
-    False
+```python
+>>> x, y = ???
+>>> x.count(y) <= len(x)
+False
+```
 
 ### Question 5: Associative multiplication
 
-    >>> x, y, z = ???
-    >>> x * (y * z) == (x * y) * z
-    False
+```python
+>>> x, y, z = ???
+>>> x * (y * z) == (x * y) * z
+False
+```
 
 ### Question 6: `zip` vs comparison
 
-    >>> x, y = ???
-    >>> x < y and all(a >= b for a, b in zip(x, y))
-    True
+```python
+>>> x, y = ???
+>>> x < y and all(a >= b for a, b in zip(x, y))
+True
+```
 
 ### Question 7: size of sets and lists
 
-    >>> x = ???
-    >>> len(set(list(x))) == len(list(set(x)))
-    False
+```python
+>>> x = ???
+>>> len(set(list(x))) == len(list(set(x)))
+False
+```
 
 ### Question 8: argument expansion
 
-    >>> x = ???
-    >>> min(x) == min(*x)
-    False
+```python
+>>> x = ???
+>>> min(x) == min(*x)
+False
+```
 
 ### Question 9: zero `sum`
 
-    >>> x, y = ???
-    >>> sum(0 * x, y) == y
-    False
+```python
+>>> x, y = ???
+>>> sum(0 * x, y) == y
+False
+```
 
 ### Question 10: `max` vs `in`
 
-    >>> x, y = ???
-    >>> y > max(x) and y in x
-    True
+```python
+>>> x, y = ???
+>>> y > max(x) and y in x
+True
+```
 
 ## Answers
 
