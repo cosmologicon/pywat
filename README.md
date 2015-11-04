@@ -196,3 +196,6 @@ TypeError: sum() can't sum strings [use ''.join(seq) instead]
 2
 ```
 
+## Explanations
+
+Want to learn more about the inner workings behind these wats? Check out the [explanation page](https://github.com/cosmologicon/pywat/blob/master/explanation.md) for clarity.
