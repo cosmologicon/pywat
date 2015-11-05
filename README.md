@@ -59,7 +59,7 @@ Note: this is not simply due to floating-point imprecision.
 False
 ```
 
-Other languages that have floats and ints do not have this behavior. It is specific to Python.
+Many other languages that have floats and ints do not have this behavior. I'm only aware of it in Python and Ruby.
 
 Also, your systems may give different results, but you can always find at least one wat along these lines.
 
@@ -186,14 +186,39 @@ Traceback (most recent call last):
 TypeError: sum() can't sum strings [use ''.join(seq) instead]
 ```
 
-### Comparing `NaN`s
+### NaN-related wats
 
 ```python
->>> x = 0*1e400  # nan
->>> len({x, x, float(x), float(x), 0*1e400, 0*1e400})
+>>> x = float("nan")
+>>> y = float("nan")
+>>> x == x
+False
+>>> [x] == [x]
+True
+>>> [x] == [y]
+False
+```
+
+[Source](https://github.com/cosmologicon/pywat/issues/22).
+
+```python
+>>> x = float("nan")
+>>> len({x, x, float(x), float(x), float("nan"), float("nan")})
 3
->>> len({x, float(x), 0*1e400})
+>>> len({x, float(x), float("nan")})
 2
+```
+
+```python
+>>> x = float("nan")
+>>> (2 * x).imag
+0.0
+>>> (x + x).imag
+0.0
+>>> (2 * complex(x)).imag
+nan
+>>> (complex(x) + complex(x)).imag
+0.0
 ```
 
 ## Explanations

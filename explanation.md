@@ -91,15 +91,14 @@ True
 
 When converted too a bool, `[]` becomes `False` (since it's empty), and `[[]]` becomes `True` (since it's not empty). Therefore `all([[]])` is equivalent to `all([False])`, and `all([[[]]])` is equivalent to `all([True])`. The first case `all([])` is trivially `True`.
 
-### Comparing `NaN`s
+### NaN-related wats
 
 ```python
->>> x = 0*1e400  # nan
->>> len({x, x, float(x), float(x), 0*1e400, 0*1e400})
+>>> x = float("nan")
+>>> len({x, x, float(x), float(x), float("nan"), float("nan")})
 3
->>> len({x, float(x), 0*1e400})
+>>> len({x, float(x), float("nan")})
 2
 ```
 
 For the purpose of set membership, two objects `x` and `y` are considered equivalent if `x is y or x == y`. For two NaNs, this will be true whenever they're the same object. So `{x, x}` will have length `1`. Every separately-defined NaN is a different object, so `x is 0*1e400` is `False`, and `{x, 0*1e400}` will have length 2. Finally, `float` called on a NaN will return the same object, so `x is float(x)` is `True`, and `{x, float(x)}` will have length 1.
-
