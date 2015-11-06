@@ -12,24 +12,6 @@ Are you unimpressed by these wats? Do you think these edge cases are actually co
 
 ## The wats
 
-### Converting to a string and back
-
-```python
->>> bool(str(False))
-True
-```
-
-### Mixing integers with strings
-
-```python
->>> int(2 * 3)
-6
->>> int(2 * '3')
-33
->>> int('2' * 3)
-222
-```
-
 ### The undocumented [converse implication](https://en.wikipedia.org/wiki/Converse_implication) operator
 
 ```python
