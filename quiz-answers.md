@@ -12,8 +12,8 @@ Count the number of questions out of 10 that you had the correct answer for.
 
 * 12/12: Congratulations! You are an expert at Python edge cases!
 * 11/12: Great job! You are proficient at Python edge cases!
-* 9-10/12: Not bad! You are skilled at Python edge cases!
-* 8/10 or less: This quiz is unable to distinguish your results from random chance with any statistical certainty. Sorry.
+* 10/12: Not bad! You are skilled at Python edge cases!
+* 9/12 or less: This quiz is unable to distinguish your results from random chance with any statistical certainty. Sorry.
 
 Just remember that edge cases can be interesting, but knowing the exact behavior of Python edge cases is not the same as being a good Python programmer. If you follow good programming practices, you can avoid problems caused by edge cases, even ones you're not aware of.
 
