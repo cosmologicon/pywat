@@ -4,7 +4,7 @@ Test your knowledge of Python edge cases!
 
 ## Instructions
 
-In each of the 10 snippets below, one or more values is missing (marked with `???`). In each case, answer Yes or No: is it possible to replace the `???` with an expression using basic, built-in Python types (see Details below) that will make the snippet into exactly what you would see if you entered the text into the interpreter?
+In each of the 12 snippets below, one or more values is missing (marked with `???`). In each case, answer Yes or No: is it possible to replace the `???` with an expression using basic, built-in Python types (see Details below) that will make the snippet into exactly what you would see if you entered the text into the interpreter?
 
 ## Examples
 
@@ -67,15 +67,7 @@ For a *real* challenge, try taking the quiz without using a Python interpreter t
 
 Good luck!
 
-### Question 1: `max` vs slice
-
-```python
->>> x, a, b, c = ???
->>> max(x) < max(x[a:b:c])
-True
-```
-
-### Question 2: `min` of two elements
+### Question 1: `min` of two elements
 
 ```python
 >>> x, y = ???
@@ -83,39 +75,7 @@ True
 False
 ```
 
-### Question 3: `any` vs addition
-
-```python
->>> x, y = ???
->>> any(x) and not any(x + y)
-True
-```
-
-### Question 4: `count` vs `len`
-
-```python
->>> x, y = ???
->>> x.count(y) <= len(x)
-False
-```
-
-### Question 5: Associative multiplication
-
-```python
->>> x, y, z = ???
->>> x * (y * z) == (x * y) * z
-False
-```
-
-### Question 6: `zip` vs comparison
-
-```python
->>> x, y = ???
->>> x < y and all(a >= b for a, b in zip(x, y))
-True
-```
-
-### Question 7: size of sets and lists
+### Question 2: size of sets and lists
 
 ```python
 >>> x = ???
@@ -123,15 +83,24 @@ True
 False
 ```
 
-### Question 8: argument expansion
+### Question 3: `type` vs `map`
 
 ```python
->>> x = ???
->>> min(x) == min(*x)
+>>> x, s = ???
+>>> s.add(x)
+>>> type(x) in map(type, s)
 False
 ```
 
-### Question 9: zero `sum`
+### Question 4: `zip` vs comparison
+
+```python
+>>> x, y = ???
+>>> x < y and all(a >= b for a, b in zip(x, y))
+True
+```
+
+### Question 5: zero `sum`
 
 ```python
 >>> x, y = ???
@@ -139,11 +108,60 @@ False
 False
 ```
 
-### Question 10: `max` vs `in`
+### Question 6: argument expansion
+
+```python
+>>> x = ???
+>>> min(x) == min(*x)
+False
+```
+
+
+### Question 7: Associative multiplication
+
+```python
+>>> x, y, z = ???
+>>> x * (y * z) == (x * y) * z
+False
+```
+
+### Question 8: `max` vs `in`
 
 ```python
 >>> x, y = ???
 >>> y > max(x) and y in x
+True
+```
+
+### Question 9: `any` vs addition
+
+```python
+>>> x, y = ???
+>>> any(x) and not any(x + y)
+True
+```
+
+### Question 10: `count` vs `len`
+
+```python
+>>> x, y = ???
+>>> x.count(y) <= len(x)
+False
+```
+
+### Question 11: `all` vs `filter`
+
+```python
+>>> x = ???
+>>> all(filter(None, x))
+False
+```
+
+### Question 12: `max` vs slice
+
+```python
+>>> x, a, b, c = ???
+>>> max(x) < max(x[a:b:c])
 True
 ```
 
