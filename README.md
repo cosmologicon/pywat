@@ -203,6 +203,34 @@ nan
 0.0
 ```
 
+### Rounding
+
+Python 2.x:
+
+```python
+>>> round(.5)
+1.0
+>>> round(1.5)
+2.0
+>>> round(2.5)
+3.0
+>>> round(3.5)
+4.0
+```
+
+Python 3:
+
+```python
+>>> round(.5)
+0
+>>> round(1.5)
+2
+>>> round(2.5)
+2
+>>> round(3.5)
+4
+```
+
 ## Explanations
 
 Want to learn more about the inner workings behind these wats? Check out the [explanation page](https://github.com/cosmologicon/pywat/blob/master/explanation.md) for clarity.

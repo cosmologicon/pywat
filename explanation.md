@@ -102,3 +102,12 @@ When converted too a bool, `[]` becomes `False` (since it's empty), and `[[]]` b
 ```
 
 For the purpose of set membership, two objects `x` and `y` are considered equivalent if `x is y or x == y`. For two NaNs, this will be true whenever they're the same object. So `{x, x}` will have length `1`. Every separately-defined NaN is a different object, so `x is 0*1e400` is `False`, and `{x, 0*1e400}` will have length 2. Finally, `float` called on a NaN will return the same object, so `x is float(x)` is `True`, and `{x, float(x)}` will have length 1.
+
+### Rounding
+
+The round() function rounding strategy and return type have
+changed. Exact halfway cases are now rounded to the nearest even
+result instead of away from zero. For the built-in types supporting
+round(), values are rounded to the closest multiple of 10 to the power
+minus n; if two multiples are equally close, rounding is done toward
+the even choice.
