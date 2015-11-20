@@ -65,10 +65,10 @@ True
 
 ### Question 5: zero `sum`
 
-**No.** This snippet is impossible.
+**Yes.** This snippet is possible.
 
 ```python
->>> x, y = ???
+>>> x, y = [], float('nan')
 >>> sum(0 * x, y) == y
 False
 ```
