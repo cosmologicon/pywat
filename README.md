@@ -70,6 +70,15 @@ True
 False
 ```
 
+### Comparison of different types
+
+Comparing a string to an integer in Python 2.x might give you a small shock.
+
+```python
+>>> '' > 1
+True
+```
+
 ### Types of arithmetic operations
 
 The type of an arithmetic operation cannot be predicted from the type of the operands alone. You also need to know their value.
