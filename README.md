@@ -33,21 +33,15 @@ True
 True
 ```
 
-Note: this is not simply due to floating-point imprecision.
-
-```python
->>> x = float((1 << 53) + 1)
->>> x + 1.0 < x
-False
-```
-
-Many other languages that have floats and ints do not have this behavior. I'm only aware of it in Python and Ruby.
-
-Also, your systems may give different results, but you can always find at least one wat along these lines.
+Think this is just floats being weird? Floats are involved, but it's not their fault this time. [Check out the explanation to see why.](https://github.com/cosmologicon/pywat/blob/master/explanation.md#mixing-numerical-types)
 
 ### Operator precedence?
 
 ```python
+>>> (False == False) in [False]
+False
+>>> False == (False in [False])
+False
 >>> False == False in [False]
 True
 ```
@@ -69,6 +63,8 @@ True
 >>> (1,2,3) == sorted((1,2,3))
 False
 ```
+
+[See the explanation if you think this is not a wat.](https://github.com/cosmologicon/pywat/blob/master/explanation.md#iterable-types-in-comparisons)
 
 ### Types of arithmetic operations
 

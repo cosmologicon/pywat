@@ -26,11 +26,27 @@ This is not actually an undocumented feature. `**` is simply the exponent operat
 True
 ```
 
-The value of `x` can be exactly represented by a Python `int`, but not by a Python `float`, which has 52 bits of precision. When `x` is converted from `int` to a `float`, it needs to be rounded to a nearby value. According to the rounding rules, that nearby value is x - 1, which _can_ be represented by a `float`.
+Let's call the real number N = 2^53 + 1 = 9007199254740993. Despite what you might have heard, floating-point representation does *exactly* represent a large range of integers, just like integer types do. (If that's surprising to you, see [this excellent paper by David Goldberg](https://ece.uwaterloo.ca/~dwharder/NumericalAnalysis/02Numerics/Double/paper.pdf).) N is significant in that it's the smallest whole number that is not represented exactly by a Python `float`, which has 52 bits of precision. Of course, N can be represented exactly by a Python `int`.
 
-When `x + 1.0` is evaluated, `x` is first converted to a `float` in order to perform the addition. This makes its value x - 1. Then `1.0` is added. This brings the value back up to x, but since the result is a float, it is again rounded down to x - 1.
+So let's look at the value that `x` holds. The right-hand side `(1 << 53) + 1` is an integer expression that's equal to N, so `x` gets the value N. If `x` is converted to a float with `float(x)`, then the result cannot be N exactly, since floats can't represent that value. According to rounding rules, the value gets converted to N - 1, which floats *can* represent.
 
-Next the comparison happens. This is where Python differs from many other languages. In C, for instance, if a `double` is compared to an `int`, the `int` is first converted to a `double`. In this case, that would mean the right-hand side would also be rounded to x - 1, the two sides would be equal, and the `<` comparison would be false. Python, however, has special logic to handle comparison between `float`s and `int`s, and it's able to correctly determine that a `float` with a value of x - 1 is less than an `int` with a value of x.
+So what is the value of `x + 1.0`? First, in order to perform the addition, `x` (which is an int containing the value N) is converted to a float. The result of this conversion is a float equal to N - 1. Next `1.0` is added, bringing the total value back to N. Finally, this value is coerced into a float again, bringing it back to N - 1. When `x + 1.0 < x` is evaluated, the left side is a float containing the value N - 1, and the right is an int containing the value N. The line is essentially this:
+
+	9007199254740992.0 < 9007199254740993
+
+There are three options that programming languages take when asked to perform this comparison. First, they may throw an error, as in Haskell, which refuses to compare floating-point types to integer types. Second, they may convert the right-hand side to float, in which case the right-hand side gets converted to N - 1, just like the left, and the comparison evaluates to false. This is the option taken by most popular languages, including C, C++, and Java.
+
+Python and Ruby, however, take a third option, which involves more complicated logic, designed to catch exactly this case. In Python and Ruby, the result of a comparison will be the comparison of the actual numerical values, even if one side cannot be accurately represented with an integer, and the other side cannot be accurately represented with a float.
+
+Again, this is not just floats being weird (and if you really think floats behave weirdly, I highly recommend that Golberg paper). This wat does not happen in most languages that use floats, and it doesn't happen when you stick with floats:
+
+```python
+>>> x = float((1 << 53) + 1)
+>>> x + 1.0 < x
+False
+```
+
+It only happens when you mix floats with ints, and only if you have Python or Ruby's complicated comparison logic.
 
 ### Operator precedence?
 
@@ -40,6 +56,46 @@ True
 ```
 
 Neither the `==` nor the `in` happens first. They're both [comparison operators](https://docs.python.org/3.5/reference/expressions.html#comparisons), with the same precedence, so they're chained. The line is equivalent to `False == False and False in [False]`, which is `True`.
+
+### Iterable types in comparisons
+
+Lists and tuples do not compare equal to each other, even if they contain the same elements.
+
+```python
+>>> [] == ()
+False
+```
+
+Some people have claimed to me that this is this is the way it should be, that different types are not supposed to compare equal to each other. While there may be good reasons for lists and tuples specifically to not compare equal, the general claim that different types should not compare equal is very un-pythonic, in my humble opinion. There are many instances of different types comparing equal in Python. If you really insist that this one's not a wat because list and tuple are different types, please accept these 13 wats instead:
+
+```python
+>>> True == 1
+True
+>>> True == 1.0
+True
+>>> True == 1j
+True
+>>> set([]) == frozenset([])
+True
+>>> u"" == ""  # Different types in Python 2 only.
+True
+>>> bytearray() == ""  # Only true in Python 2.
+True
+>>> collections.OrderedDict() == dict()
+True
+>>> collections.defaultdict() == dict()
+True
+>>> collections.Counter() == dict()
+True
+>>> collections.namedtuple("x", "a")(1) == (1,)
+True
+>>> collections.UserList() == []
+True
+>>> collections.UserString() == ""
+True
+>>> enum.IntEnum("x", "a").a == 1
+True
+```
 
 ### Fun with iterators
 
