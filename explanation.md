@@ -158,3 +158,9 @@ When converted too a bool, `[]` becomes `False` (since it's empty), and `[[]]` b
 ```
 
 For the purpose of set membership, two objects `x` and `y` are considered equivalent if `x is y or x == y`. For two NaNs, this will be true whenever they're the same object. So `{x, x}` will have length `1`. Every separately-defined NaN is a different object, so `x is 0*1e400` is `False`, and `{x, 0*1e400}` will have length 2. Finally, `float` called on a NaN will return the same object, so `x is float(x)` is `True`, and `{x, float(x)}` will have length 1.
+
+### Comparing `object()`s (python2)
+
+In python2, objects that don't provide a comparison operator are compared based
+on their `id()` (memory address). The alternating addresses are probably an
+effect of the way the memory allocator works.

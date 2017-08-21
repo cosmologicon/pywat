@@ -199,6 +199,21 @@ nan
 0.0
 ```
 
+### Comparing `object()`s (python2)
+
+`object()` is smaller than `object()`. Half the time.
+
+```python
+>>> object() < object()
+True
+>>> object() < object()
+False
+>>> object() < object()
+True
+>>> ''.join([str(int(object() < object())) for _ in xrange(100)])
+'0101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101'
+```
+
 ## Explanations
 
 Want to learn more about the inner workings behind these wats? Check out the [explanation page](https://github.com/cosmologicon/pywat/blob/master/explanation.md) for clarity.
