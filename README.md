@@ -199,6 +199,13 @@ nan
 0.0
 ```
 
+### Negative Zero
+
+```python
+>>> -1 * 0.0
+-0.0
+```
+
 ## Explanations
 
 Want to learn more about the inner workings behind these wats? Check out the [explanation page](https://github.com/cosmologicon/pywat/blob/master/explanation.md) for clarity.
