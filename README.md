@@ -199,6 +199,15 @@ nan
 0.0
 ```
 
+### Round()
+
+```python
+>>> round(1.5)
+2
+>>> round(2.5)
+2
+```
+
 ### Negative Zero
 
 ```python
