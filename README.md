@@ -199,6 +199,22 @@ nan
 0.0
 ```
 
+### Round()
+
+```python
+>>> round(1.5)
+2
+>>> round(2.5)
+2
+```
+
+### Negative Zero
+
+```python
+>>> -1 * 0.0
+-0.0
+```
+
 ## Explanations
 
 Want to learn more about the inner workings behind these wats? Check out the [explanation page](https://github.com/cosmologicon/pywat/blob/master/explanation.md) for clarity.
