@@ -33,7 +33,14 @@ True
 True
 ```
 
-Think this is just floats being weird? Floats are involved, but it's not their fault this time. [Check out the explanation to see why.](https://github.com/cosmologicon/pywat/blob/master/explanation.md#mixing-numerical-types)
+Think this is just floats being weird?
+
+``` python
+>>> x + 1.0 < x + 0.0
+False
+```
+
+Floats are involved, but it's not their fault this time. [Check out the explanation to see why.](https://github.com/cosmologicon/pywat/blob/master/explanation.md#mixing-numerical-types)
 
 ### Operator precedence?
 
